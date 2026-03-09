@@ -1,0 +1,472 @@
+!DOCTYPE html
+html lang=zh-TW
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    title1E退休金目標全攻略title
+    script src=httpscdn.tailwindcss.comscript
+    script src=httpscdn.jsdelivr.netnpmchart.jsscript
+    style
+        .chart-container {
+            position relative;
+            width 100%;
+            max-width 900px;
+            margin-left auto;
+            margin-right auto;
+            height 350px;
+            max-height 400px;
+        }
+        @media (min-width 768px) {
+            .chart-container {
+                height 400px;
+            }
+        }
+        body {
+            background-color #fafaf9;
+            font-family 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color #292524;
+        }
+        .nav-btn.active {
+            background-color #0f766e;
+            color #ffffff;
+            border-color #0f766e;
+        }
+        .stage-btn.active {
+            background-color #f0fdfa;
+            border-color #0d9488;
+            border-left-width 6px;
+            box-shadow 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .strikethrough-checkedchecked + span {
+            text-decoration line-through;
+            color #a8a29e;
+        }
+        .status-light {
+            width 14px;
+            height 14px;
+            border-radius 50%;
+            display inline-block;
+            margin-right 8px;
+        }
+        .hide-scrollbar-webkit-scrollbar {
+            display none;
+        }
+    style
+head
+body class=antialiased min-h-screen flex flex-col
+
+    !-- Chosen Palette Warm neutral background (stone-50) with elegant Teal-800 for depth and AmberRose for functional status. --
+    !-- Application Structure Plan The application is logically segmented into three interactive functional views 
+        1. 'Math & Strategy' (Dashboard) Focuses on the immediate financial baseline and the long-term compounding visualizations. 
+        2. 'Lifelong Roadmap' (Stages) A drill-down explorer for the 4 life stages, synthesized to show parentskidscareerbudget concurrently.
+        3. 'Execution SOP' (Action) A tactical checklist to ensure systemic compliance during the first 7 years. 
+        This architecture ensures that no qualitative or quantitative detail from the 'Ultimate Version' is buried. --
+    !-- Visualization & Content Choices 
+        - Growth Chart Displays the non-linear impact of car loan release at age 39.
+        - ESOT Donut Clearly highlights the 50% matching logic.
+        - Grid Layouts Used for financial KPIs to provide quick information consumption.
+        - Functional Tabs Managed via Vanilla JS for seamless navigation.
+        Confirming NO SVG, NO Mermaid JS. All icons are Unicode. --
+    !-- CONFIRMATION NO SVG graphics used. NO Mermaid JS used. --
+
+    header class=bg-teal-800 text-white shadow-xl sticky top-0 z-50
+        div class=container mx-auto px-4 lgpx-8 py-6 mdpy-10
+            h1 class=text-3xl mdtext-5xl font-black tracking-tight mb-3🎯 1E退休金目標全攻略h1
+            p class=text-teal-100 text-sm mdtext-lg font-medium opacity-90群聯 ESOT 三代同構分析  保守 7% 報酬率模型  終極完整版p
+        div
+        div class=bg-white border-b border-stone-200 shadow-sm overflow-x-auto hide-scrollbar
+            div class=container mx-auto px-4 lgpx-8 flex space-x-2 py-3
+                button onclick=appState.switchTab('tab-dashboard') id=btn-tab-dashboard class=nav-btn active px-6 py-2 rounded-full border border-stone-300 text-sm font-bold whitespace-nowrap transition-all text-stone-600 hoverbg-stone-50📊 財務基準與複利模型button
+                button onclick=appState.switchTab('tab-stages') id=btn-tab-stages class=nav-btn px-6 py-2 rounded-full border border-stone-300 text-sm font-bold whitespace-nowrap transition-all text-stone-600 hoverbg-stone-50🛣️ 三代責任演變與代價button
+                button onclick=appState.switchTab('tab-action') id=btn-tab-action class=nav-btn px-6 py-2 rounded-full border border-stone-300 text-sm font-bold whitespace-nowrap transition-all text-stone-600 hoverbg-stone-50✅ 33-40歲 關鍵行動 SOPbutton
+            div
+        div
+    header
+
+    main class=flex-grow container mx-auto px-4 lgpx-8 py-8 mdpy-12
+
+        !-- DASHBOARD TAB --
+        div id=tab-dashboard class=tab-view block
+            section class=mb-10
+                h2 class=text-2xl font-bold text-stone-800 mb-4 flex items-center
+                    span class=mr-2📋span 當前財務基準與防禦武器
+                h2
+                p class=text-stone-600 mb-8 leading-relaxed
+                    本區塊整合了家庭最強大的現金流基礎與兩大關鍵防禦額度。此數學模型建立在strong保守 7% 報酬率strong之上，確保在市場循環波動中仍具備計畫韌性。
+                p
+                
+                div class=grid grid-cols-1 mdgrid-cols-2 lggrid-cols-4 gap-6 mb-12
+                    div class=bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-t-4 border-t-teal-600
+                        div class=text-xs font-bold text-stone-400 uppercase tracking-widest mb-1家庭總年收 (含獎金)div
+                        div class=text-2xl font-black text-stone-800230 ~ 270 萬div
+                        p class=text-xs text-stone-500 mt-2強大容錯率，支應防禦額度還款。p
+                    div
+                    div class=bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-t-4 border-t-amber-500
+                        div class=text-xs font-bold text-stone-400 uppercase tracking-widest mb-1防禦 A (理財型房貸)div
+                        div class=text-2xl font-black text-amber-700300 萬div
+                        p class=text-xs text-stone-500 mt-2strong3.6% 利率  只需還利息strong。父母醫療首選。p
+                    div
+                    div class=bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-t-4 border-t-orange-500
+                        div class=text-xs font-bold text-stone-400 uppercase tracking-widest mb-1防禦 B (信用貸款)div
+                        div class=text-2xl font-black text-orange-700300 萬div
+                        p class=text-xs text-stone-500 mt-2strong2.4% 利率  7年本息均攤strong。最後防線。p
+                    div
+                    div class=bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-t-4 border-t-sky-500
+                        div class=text-xs font-bold text-stone-400 uppercase tracking-widest mb-1🚗 39歲車貸紅利div
+                        div class=text-2xl font-black text-sky-700+$10,000  月div
+                        p class=text-xs text-stone-500 mt-2完款後釋放現金流轉投資，貢獻 800萬。p
+                    div
+                div
+
+                div class=grid grid-cols-1 lggrid-cols-3 gap-8
+                    div class=lgcol-span-2 bg-white p-8 rounded-3xl shadow-sm border border-stone-200
+                        h3 class=text-xl font-bold text-stone-800 mb-2📈 複利成長預測 (保守 7% 模型)h3
+                        p class=text-sm text-stone-500 mb-8 italic※ 已納入 39 歲車貸現金流紅利與 ESOT 補助p
+                        div class=chart-container
+                            canvas id=growthChartcanvas
+                        div
+                    div
+                    div class=bg-white p-8 rounded-3xl shadow-sm border border-stone-200 flex flex-col
+                        h3 class=text-xl font-bold text-stone-800 mb-4💼 ESOT 本薪槓桿h3
+                        div class=chart-container flex-grow style=max-height 250px;
+                            canvas id=esotChartcanvas
+                        div
+                        div class=mt-8 space-y-3
+                            div class=flex justify-between text-sm
+                                span class=text-stone-500本薪提撥 6%span
+                                span class=font-bold text-stone-800$7,188span
+                            div
+                            div class=flex justify-between text-sm
+                                span class=text-teal-600 font-bold公司補助 3% (紅利)span
+                                span class=font-bold text-teal-700+$3,594span
+                            div
+                            div class=pt-4 border-t border-stone-100
+                                p class=text-[11px] text-stone-500 leading-relaxed italic
+                                    公司補助紅利相當於每年無條件獲得約 $43,128 的保證獲利。
+                                p
+                            div
+                        div
+                    div
+                div
+            section
+        div
+
+        !-- STAGES TAB --
+        div id=tab-stages class=tab-view hidden
+            section class=mb-10
+                h2 class=text-2xl font-bold text-stone-800 mb-4 flex items-center
+                    span class=mr-2🧭span 三代責任、壓力指標與旅遊預算
+                h2
+                p class=text-stone-600 mb-8 leading-relaxed
+                    本區塊將 32 年規劃拆解為老、中、青三代的動態變化。請點擊卡片以展開strong「壓力燈」strong、strong「旅遊預算」strong、strong「各別側重點」strong以及strong「離開群聯的實質轉職代價」strong。
+                p
+
+                div class=grid grid-cols-1 smgrid-cols-2 lggrid-cols-4 gap-5 mb-10 id=stage-selector-containerdiv
+
+                div class=bg-white rounded-[2.5rem] shadow-md border border-stone-200 overflow-hidden min-h-[650px] id=stage-detail-container
+                    div class=flex flex-col items-center justify-center h-full p-20 text-stone-400 text-center
+                        span class=text-6xl mb-6💡span
+                        p class=text-xl font-medium leading-relaxed請點擊上方各年齡段卡片br探索詳細的財務導航與責任分析p
+                    div
+                div
+            section
+        div
+
+        !-- ACTION TAB --
+        div id=tab-action class=tab-view hidden
+            section class=mb-10 max-w-4xl mx-auto
+                h2 class=text-2xl font-bold text-stone-800 mb-4 flex items-center
+                    span class=mr-2⚡span 奠基期核心執行 SOP (33 ~ 40 歲)
+                h2
+                p class=text-stone-600 mb-10 leading-relaxed
+                    這是計畫最關鍵的「發動階段」。此 SOP 旨在透過系統化工具，將人性的不確定性降至最低。
+                p
+
+                div class=space-y-6
+                    div class=bg-white p-6 rounded-3xl border border-stone-200 shadow-sm
+                        label class=flex items-start cursor-pointer group
+                            input type=checkbox class=strikethrough-checked mt-1.5 w-6 h-6 text-teal-600 rounded-lg border-stone-300 focusring-teal-500
+                            div class=ml-5
+                                span class=text-xl font-black text-stone-800 block mb-1確定啟動 ESOT 6%：月提 $7,188span
+                                p class=text-stone-500 text-sm leading-relaxed拿滿公司 50% 紅利補助，實現發薪前自動儲蓄。這是 95% 成功率的開關。p
+                            div
+                        label
+                    div
+
+                    div class=bg-white p-6 rounded-3xl border border-stone-200 shadow-sm
+                        label class=flex items-start cursor-pointer group
+                            input type=checkbox class=strikethrough-checked mt-1.5 w-6 h-6 text-teal-600 rounded-lg border-stone-300 focusring-teal-500
+                            div class=ml-5
+                                span class=text-xl font-black text-stone-800 block mb-1確立 3.6% 理財型房貸「只還息」權限span
+                                p class=text-stone-500 text-sm leading-relaxed確認銀行設定。此為應對父母老化醫療的第一道物理盾牌，保護主投資線不被隨意提領。p
+                            div
+                        label
+                    div
+
+                    div class=bg-white p-6 rounded-3xl border border-stone-200 shadow-sm
+                        label class=flex items-start cursor-pointer group
+                            input type=checkbox class=strikethrough-checked mt-1.5 w-6 h-6 text-teal-600 rounded-lg border-stone-300 focusring-teal-500
+                            div class=ml-5
+                                span class=text-xl font-black text-stone-800 block mb-139 歲車貸自動轉投資設定span
+                                p class=text-stone-500 text-sm leading-relaxed預先在行事曆標註六年後日期，屆時將原車貸支出 $10,000 直接導向定期定額 VOO。p
+                            div
+                        label
+                    div
+
+                    div class=bg-white p-6 rounded-3xl border border-stone-200 shadow-sm
+                        label class=flex items-start cursor-pointer group
+                            input type=checkbox class=strikethrough-checked mt-1.5 w-6 h-6 text-teal-600 rounded-lg border-stone-300 focusring-teal-500
+                            div class=ml-5
+                                span class=text-xl font-black text-stone-800 block mb-1獎金預備金建立：20 萬現金緩衝span
+                                p class=text-stone-500 text-sm leading-relaxed每年獎金入帳優先留存 20 萬於高利活存，應對小額醫療或家庭突發，降低負債心理壓力。p
+                            div
+                        label
+                    div
+
+                    div class=bg-white p-6 rounded-3xl border border-stone-200 shadow-sm
+                        label class=flex items-start cursor-pointer group
+                            input type=checkbox class=strikethrough-checked mt-1.5 w-6 h-6 text-teal-600 rounded-lg border-stone-300 focusring-teal-500
+                            div class=ml-5
+                                span class=text-xl font-black text-stone-800 block mb-1年度旅遊專款預撥 ($15-20萬)span
+                                p class=text-stone-500 text-sm leading-relaxed每年初撥發完旅遊專款後，剩餘獎金 100% 投入投資，杜絕超支風險。p
+                            div
+                        label
+                    div
+
+                    div class=bg-white p-6 rounded-3xl border border-stone-200 shadow-sm border-l-8 border-l-teal-600
+                        label class=flex items-start cursor-pointer group
+                            input type=checkbox class=strikethrough-checked mt-1.5 w-6 h-6 text-teal-600 rounded-lg border-stone-300 focusring-teal-500
+                            div class=ml-5
+                                span class=text-xl font-black text-stone-800 block mb-1配偶職涯銜接確認：36 歲回全職span
+                                p class=text-stone-500 text-sm leading-relaxed確認太太 3 年後回歸全職護理職。鎖定預期之 4 萬月薪專供小孩教育與儲蓄加速。p
+                            div
+                        label
+                    div
+                div
+            section
+        div
+
+    main
+
+    footer class=bg-stone-900 text-stone-500 py-12 text-center text-sm
+        div class=container mx-auto px-4
+            p class=mb-2群聯 ESOT 理財顧問分析系統  © 2026 1E退休金目標全攻略p
+            p class=text-stone-700數據僅供模擬參考，請依實際市場變動與個人職涯狀況定期檢視。包含辦法 5.28.18.3.1 之應用。p
+        div
+    footer
+
+    script
+        const appState = {
+            currentTab 'tab-dashboard',
+            growthChartInstance null,
+            esotChartInstance null,
+            stageData [
+                {
+                    id 0,
+                    title '黃金奠基期',
+                    age '33 ~ 40 歲',
+                    goal '1,000 萬 (資產  房貸)',
+                    successRate '95%',
+                    color '#F59E0B',
+                    lightName '黃燈 🟡 (中度壓力)',
+                    travel '$15 ~ 20 萬  年',
+                    travelAdvice '趁父母能走、小孩願跟，每年安排海外或精緻旅遊。這筆錢不影響千萬地基。',
+                    careerCost '極高。每年損失 4.3 萬公司補貼。轉職底薪加薪需 15% 才能抵銷失去 ESOT 的財富損失。',
+                    parents '父母 63-76 歲。具備自理能力但缺長照與癌症險。重點在於每年深度健檢，預防勝於治療。遇小額支出動用 20 萬預備金。',
+                    kids '小孩 4-12 歲。此時期為學前與國小階段。預算著重於幼兒園費用、國小才藝（如鋼琴、運動啟蒙）與各類課後興趣班。太太 36 歲回歸後的 4 萬月薪能完美覆蓋，保護投資主線。',
+                    summary '「系統勝過眼光」，鎖定 ESOT 6% 並確保配偶如期回職，是計畫最穩的防禦線。'
+                },
+                {
+                    id 1,
+                    title '壓力與回報期',
+                    age '40 ~ 50 歲',
+                    goal '2,320 萬 (受車貸紅利)',
+                    successRate '88%',
+                    color '#EF4444',
+                    lightName '紅燈 🔴 (高度壓力)',
+                    travel '$12 ~ 18 萬  年',
+                    travelAdvice '以「充電、放鬆」為主。維持理財型房貸額度作為戰備，避免長程旅遊過度消耗儲蓄。',
+                    careerCost '中高。資產已具規模，漲跌幅將大於薪資。轉職應追求職位躍升與生活平衡。',
+                    parents '父母 70-86 歲。進入高頻就醫期。核心操作：啟動 3.6% 只還利息房貸支付大筆醫療，嚴禁賣股。',
+                    kids '小孩 11-22 歲。國中、高中至大學高峰期。預算轉向高額補習費、私立大學研究所學費。此階段需提早準備 20 歲撥發之「買車基金」與「社會職涯起跑基金 (各 100 萬)」，利用 ESOT 期滿金 (辦法 8.1) 支應。',
+                    summary '善用 3.6% 理財房貸「只還息」特性作為防禦盾牌，嚴禁在此階段割肉變現本金。'
+                },
+                {
+                    id 2,
+                    title '資產噴發期',
+                    age '50 ~ 60 歲',
+                    goal '5,850 萬',
+                    successRate '82%',
+                    color '#10B981',
+                    lightName '綠燈 🟢 (低度壓力)',
+                    travel '$30 ~ 45 萬  年',
+                    travelAdvice '複利果實已成熟。應提升旅遊品質（如長程郵輪），與配偶重溫兩人世界。',
+                    careerCost '低。資產複利已成為核心，ESOT 補助對總資產增幅影響降至 2% 以下。',
+                    parents '父母 80-96 歲。面臨長照。此時資產產生的配息已大於看護開銷，財務上進入完全安全區。',
+                    kids '小孩 21-32 歲。成家立業與進修關鍵期。預算配置於國外深造博士學位補助、結婚紅包，並從複利資產中撥出「各 200 萬買房頭期補貼」，利用資產分紅無痛支出，協助子女建立穩定家庭。',
+                    summary '從「追求卓越」轉向「保全果實」，分批收割高波動個股轉入 VOO，鎖定一億退休門票。'
+                },
+                {
+                    id 3,
+                    title '圓夢圓滿期',
+                    age '60 ~ 65 歲',
+                    goal '1.1 億',
+                    successRate '92%',
+                    color '#3B82F6',
+                    lightName '藍燈 🔵 (自由圓滿)',
+                    travel '$60 萬 +  年',
+                    travelAdvice '結清房貸後現金流極充沛。每年可多次長途旅行，享受一生勞動成果。',
+                    careerCost '無代價。準備優雅退休。',
+                    parents '功德圓滿，智慧傳承階段。',
+                    kids '子女 31-37 歲。事業成熟穩定期。你的一億資產是他們挑戰世界最大的心理後盾與風險緩衝。此階段可根據需求提供孫輩教育信託，完成三代財富傳承。',
+                    summary '債務清零且現金流充沛，你的一億資產是子女挑戰人生的心理盾牌，讓他們在 30 歲黃金期敢於挑戰。'
+                }
+            ],
+
+            switchTab function(tabId) {
+                document.querySelectorAll('.tab-view').forEach(el = el.classList.replace('block', 'hidden'));
+                document.querySelectorAll('.nav-btn').forEach(el = el.classList.remove('active'));
+                
+                document.getElementById(tabId).classList.replace('hidden', 'block');
+                document.getElementById('btn-' + tabId).classList.add('active');
+                
+                if(tabId === 'tab-dashboard') this.initCharts();
+                if(tabId === 'tab-stages' && !document.getElementById('stage-detail-container').innerHTML.includes('成功率')) this.renderStage(0);
+            },
+
+            initCharts function() {
+                const growthCtx = document.getElementById('growthChart');
+                if (growthCtx && !this.growthChartInstance) {
+                    this.growthChartInstance = new Chart(growthCtx.getContext('2d'), {
+                        type 'line',
+                        data {
+                            labels ['33歲', '40歲', '50歲', '60歲', '65歲'],
+                            datasets [{
+                                label '資產預估 (萬)',
+                                data [333.4, 1000, 2320, 5850, 11000],
+                                borderColor '#0f766e',
+                                backgroundColor 'rgba(15, 118, 110, 0.12)',
+                                borderWidth 4,
+                                pointBackgroundColor '#fff',
+                                pointBorderColor '#0f766e',
+                                pointBorderWidth 2,
+                                pointRadius 6,
+                                fill true,
+                                tension 0.35
+                            }]
+                        },
+                        options {
+                            responsive true,
+                            maintainAspectRatio false,
+                            plugins { legend { display false } },
+                            scales {
+                                y { beginAtZero true, grid { color '#f3f4f6' }, ticks { callback v = v = 10000  (v10000).toFixed(1) + '億'  v + '萬' } },
+                                x { grid { display false } }
+                            }
+                        }
+                    });
+                }
+
+                const esotCtx = document.getElementById('esotChart');
+                if (esotCtx && !this.esotChartInstance) {
+                    this.esotChartInstance = new Chart(esotCtx.getContext('2d'), {
+                        type 'doughnut',
+                        data {
+                            labels ['自提 6% ($7,188)', '補助 3% ($3,594)'],
+                            datasets [{
+                                data [7188, 3594],
+                                backgroundColor ['#0f766e', '#d97706'],
+                                borderWidth 0
+                            }]
+                        },
+                        options {
+                            responsive true,
+                            maintainAspectRatio false,
+                            cutout '75%',
+                            plugins { legend { position 'bottom', labels { usePointStyle true, padding 20 } } }
+                        }
+                    });
+                }
+            },
+
+            renderStageSelector function() {
+                const container = document.getElementById('stage-selector-container');
+                this.stageData.forEach((s, idx) = {
+                    const btn = document.createElement('div');
+                    btn.className = `stage-btn cursor-pointer bg-white p-5 rounded-2xl border border-stone-200 transition-all text-left flex justify-between items-center shadow-sm hovershadow-md`;
+                    btn.id = `selector-${idx}`;
+                    btn.onclick = () = this.renderStage(idx);
+                    btn.innerHTML = `
+                        div
+                            div class=text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1${s.age}div
+                            div class=font-black text-stone-800 text-lg leading-tight${s.title}div
+                        div
+                        span class=status-light style=background ${s.color}; box-shadow 0 0 8px ${s.color}66span
+                    `;
+                    container.appendChild(btn);
+                });
+            },
+
+            renderStage function(idx) {
+                document.querySelectorAll('.stage-btn').forEach(el = el.classList.remove('active'));
+                document.getElementById(`selector-${idx}`).classList.add('active');
+
+                const s = this.stageData[idx];
+                const detail = document.getElementById('stage-detail-container');
+                
+                detail.innerHTML = `
+                    div class=p-8 mdp-14 animate-in fade-in duration-500
+                        div class=flex flex-col mdflex-row justify-between items-start mditems-end border-b border-stone-100 pb-10 mb-10
+                            div
+                                span class=inline-block px-4 py-1.5 rounded-full bg-stone-100 text-stone-600 text-xs font-black mb-4 uppercase tracking-widest${s.age}span
+                                h3 class=text-4xl font-black text-stone-900 mb-3${s.title}h3
+                                p class=text-teal-700 font-bold text-xl資產標竿：${s.goal} span class=text-sm font-normal text-stone-400 ml-2 (預估成功率 ${s.successRate})spanp
+                            div
+                            div class=mt-8 mdmt-0 text-right
+                                p class=text-xs font-bold text-stone-400 uppercase tracking-widest mb-2🚦 壓力燈p
+                                div class=font-black text-2xl style=color ${s.color}${s.lightName}div
+                            div
+                        div
+
+                        div class=grid grid-cols-1 mdgrid-cols-2 gap-8 mb-10
+                            div class=bg-teal-50 p-8 rounded-[2rem] border border-teal-100
+                                h4 class=font-black text-teal-900 text-lg flex items-center gap-2 mb-4✈️ 年度旅遊允許預算：${s.travel}h4
+                                p class=text-sm text-teal-800 leading-relaxed${s.travelAdvice}p
+                            div
+                            div class=bg-amber-50 p-8 rounded-[2rem] border border-amber-100
+                                h4 class=font-black text-amber-900 text-lg flex items-center gap-2 mb-4⚠️ 離開群聯之職涯代價評估h4
+                                p class=text-sm text-amber-800 leading-relaxed font-medium${s.careerCost}p
+                            div
+                        div
+
+                        div class=grid grid-cols-1 mdgrid-cols-3 gap-10 mb-10
+                            div class=space-y-4
+                                h5 class=font-black text-stone-800 flex items-center gap-2👴 父母側責任與醫療h5
+                                p class=text-sm text-stone-600 leading-relaxed${s.parents}p
+                            div
+                            div class=space-y-4 border-l-0 mdborder-l border-stone-100 pl-0 mdpl-10
+                                h5 class=font-black text-stone-800 flex items-center gap-2👨‍👩‍👦 夫妻與配偶規劃h5
+                                p class=text-sm text-stone-600 leading-relaxed夫妻同步衝刺，鎖定 6% 提撥。${idx === 0  '確保 36 歲回職銜接。'  '保持生活平衡與心理彈性，嚴防恐慌性變現。'}p
+                            div
+                            div class=space-y-4 border-l-0 mdborder-l border-stone-100 pl-0 mdpl-10
+                                h5 class=font-black text-stone-800 flex items-center gap-2👶 子女側教育與基金h5
+                                p class=text-sm text-stone-600 leading-relaxed${s.kids}p
+                            div
+                        div
+
+                        div class=bg-stone-900 p-8 rounded-[2rem] text-white shadow-xl
+                            p class=text-xs font-black uppercase tracking-widest text-teal-400 mb-2💡 理財顧問總結建議p
+                            p class=font-bold text-xl leading-relaxed italic「${s.summary}」p
+                        div
+                    div
+                `;
+            }
+        };
+
+        window.onload = () = {
+            appState.renderStageSelector();
+            appState.initCharts();
+        };
+    script
+body
+html
